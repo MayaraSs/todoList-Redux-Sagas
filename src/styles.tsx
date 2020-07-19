@@ -19,7 +19,7 @@ export const AddInput = styled.div`
     border-radius: 5px;
     border: 1px solid #ccc;
     padding: 0 10px;
-    margin-right: 40px;
+    margin-right: 100px;
 
     button{
         cursor: pointer;
