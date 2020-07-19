@@ -2,6 +2,7 @@ import React from 'react'
 import { TodoItem} from '../../store/modules/todo/types'
 import { AiFillCheckCircle, AiFillDelete } from 'react-icons/ai'
 import { BsArrowCounterclockwise } from 'react-icons/bs'
+import {Body} from '../../styles'
 
 interface ComponentTodo {
     todo: TodoItem,
@@ -12,27 +13,27 @@ interface ComponentTodo {
 const Todo: React.FC<ComponentTodo> = ({todo, deleteTodoItem, editStatus }: ComponentTodo) => {
 
   return (
-    <div className="todo" key={todo.id}>
-        <div>{todo.message}</div>
-        <div className="actions">
-
-            {
+    <Body>
+            <div className="message" key={todo.id}>{todo.message}</div>
                 
-                    <button type="button" className="icon" onClick={() => editStatus(todo)}>
-                        {todo.done ? (
-                            <AiFillCheckCircle color="#27ae60"/>
-                        ) : (
-                            <BsArrowCounterclockwise color="#e67e22"/>
-                        )}
-                    </button>
+
+                
+                    {
+                        <button onClick={() => editStatus(todo)}>
+                            {todo.done ? (
+                                <AiFillCheckCircle color="#27ae60"/>
+                            ) : (
+                                <BsArrowCounterclockwise color="#e67e22"/>
+                            )}
+                        </button>
+                    }
                     
-            }
-            
-            <button type="button" className="icon" onClick={() => deleteTodoItem(todo.id)}>
-                <AiFillDelete color="e74c3c"/>
-            </button>
-        </div>
-    </div>
+                        <button onClick={() => deleteTodoItem(todo.id)}>
+                            <AiFillDelete color="e74c3c"/>
+                        </button>
+                
+               
+    </Body>
   )
 }
 
